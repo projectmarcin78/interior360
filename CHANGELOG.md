@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-10-21
+
+### Added
+- Original English Terms & reviews, current-preview Privacy & cookies, and Report a problem pages.
+- Direct reporting email and legal links in site footers and form notices.
+- Clear statements that reviews are not verified, moderation is independent of payment and public data is not automatically free to reuse.
+
+### Availability
+- Privacy wording covers the current preview. A full Google-backend privacy/data-flow review and confirmed business identification details are required before submissions open.
+
 ## [1.1.0] - 2026-10-21
 
 ### Added
