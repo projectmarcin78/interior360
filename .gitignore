@@ -6,3 +6,7 @@ node_modules/
 *.csv
 *.log
 .clasprc.json
+
+/public/version.json
+/public/site-version.js
+/release-notes.generated.md

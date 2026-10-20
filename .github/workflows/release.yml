@@ -1,0 +1,22 @@
+name: Publish versioned release
+on:
+  push:
+    branches: [main]
+    paths: ['VERSION']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: versioned-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate version and prepare notes
+        run: node scripts/prepare-release.mjs
+      - name: Create version tag and release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/publish-release.mjs

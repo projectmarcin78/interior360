@@ -37,3 +37,7 @@ The company website and directory keep separate paths. The directory can also be
 ## Verification
 
 JavaScript syntax, template configuration and backend validation/moderation logic were checked locally. Live submissions require the owner's Google Apps Script deployment. Browser rendering and final embedding still need verification.
+
+## Versioning
+
+Current baseline: **1.0.0**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
