@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-10-21
+
+### Added
+- Accessible 1–5 star selection in the review form, replacing the numeric dropdown.
+- Keyboard and touch controls, required selection and cumulative star highlighting.
+- The selected value uses the existing rating field and server validation. Google backend remains disconnected.
+
 ## [1.2.2] - 2026-10-21
 
 ### Fixed
