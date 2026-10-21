@@ -2,7 +2,7 @@
 
 Private community directory of contacts and services for homeowners in Sicily.
 
-Current baseline: **2.0.0**. See VERSIONING.md for semantic versioning and CHANGELOG.md for changes.
+Current baseline: **2.0.1**. See VERSIONING.md for semantic versioning and CHANGELOG.md for changes.
 
 ## Repository
 
@@ -24,7 +24,7 @@ The owner manages the private Members sheet (Phone, Name, Status). A full intern
 
 The 8-digit code expires after 30 minutes, five unsuccessful attempts or one successful use. Regenerating a code invalidates the previous code for that number. The application has no anonymous code-generation endpoint. Only hashes are stored in script properties; no codes or sessions are committed to GitHub or written to spreadsheet cells.
 
-A successful sign-in grants a random session token for up to 7 days. The server checks expiration and current membership on every data read/write. The browser stores the token locally where available and periodically rechecks membership. Sign out revokes the token and clears rendered contacts and forms. Browser storage may be temporary or unavailable in embedded/credentialless/private contexts; in that case access may require a fresh code. Prefer the direct app link if the embedded view loses its session. Already viewed or copied information cannot be recalled, and a recipient could forward their number and code: this is manual invitation access, not independent WhatsApp identity verification.
+A successful sign-in grants a random session token for up to 90 days. The server checks expiration and current membership on every data read/write. The browser stores the token locally where available and periodically rechecks membership. Sign out revokes the token and clears rendered contacts and forms. Browser storage may be temporary or unavailable in embedded/credentialless/private contexts; in that case access may require a fresh code. Prefer the direct app link if the embedded view loses its session. Already viewed or copied information cannot be recalled, and a recipient could forward their number and code: this is manual invitation access, not independent WhatsApp identity verification.
 
 Server session and code hashes are kept privately in Apps Script properties. Expired entries are removed when the owner generates a later code. Keep the group small and review unused membership records. Do not share the database with members; the app handles access while running as the owner.
 

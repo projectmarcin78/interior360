@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-10-21
+
+### Changed
+- Remember an approved member session for up to 90 days instead of 7 days. Membership remains valid until blocked or removed.
+- Explain before and after sign-in that a new code must be requested from Marcin on WhatsApp after 90 days, with an explicit expired-session message on return.
+- Use a bounded daily expiry timer to avoid browser timeout overflow for long sessions.
+
+### Deployment
+- Requires replacing Code.gs with 2.0.1 and updating the Google deployment. The public wrapper remains paused pending private-access verification.
+
 ## [2.0.0] - 2026-10-21
 
 ### Breaking changes

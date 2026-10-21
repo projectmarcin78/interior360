@@ -1,11 +1,11 @@
-# SicilyCrew 2.0.0 — manual WhatsApp access
+# SicilyCrew 2.0.1 — manual WhatsApp access
 
 This is a breaking change from the anonymous directory. Keep contacts private during migration.
 
 ## Deploy on the company account
 
 1. Sign into Google yourself as marcin@interior360.pl. Open the existing private database and Extensions > Apps Script. Do not share the database with group members.
-2. Replace the complete Code.gs with backend/Code.gs from v2.0.0 and save. Do not leave the previous code in a second file.
+2. Replace the complete Code.gs with backend/Code.gs from v2.0.1 and save. Do not leave the previous code in a second file.
 3. Run setupSicilyCrew from the editor as the owner. It checks contact/review headers, adds/validates Members and creates a private authentication secret. Existing contact/review data stays unchanged. If Google asks, approve only the permissions shown for this script; it does not use MailApp or read WhatsApp.
 4. Reload the database spreadsheet. The SicilyCrew menu should appear. Members columns are Phone, Name, Status. Phone values must be plain text with country code, e.g. +39…; Status is exactly Active or Blocked. One row per number. Marcin’s supplied number is seeded for the initial test.
 5. In Apps Script: Deploy > Manage deployments > select the existing web app > Edit (pencil) > Version > New version > Deploy. Execute as Me, access Anyone: the URL itself is reachable, but the new server checks the private token before any contact read or write. Do not mistake that setting for an open database.
@@ -23,7 +23,7 @@ This is a breaking change from the anonymous directory. Keep contacts private du
 
 ## Invite a person
 
-Add their full WhatsApp number, optional name and Active status in Members. Select their row, generate a code, click Open WhatsApp with this message, review the recipient, then press Send yourself. Codes expire in 30 minutes and allow five attempts. The browser can stay signed in up to 7 days; temporary/blocked storage may require another code sooner. Blocked removes server access; copying information by an already authorized person cannot be undone.
+Add their full WhatsApp number, optional name and Active status in Members. Select their row, generate a code, click Open WhatsApp with this message, review the recipient, then press Send yourself. Codes expire in 30 minutes and allow five attempts. The browser can stay signed in up to 90 days; temporary/blocked storage may require another code sooner. Blocked removes server access; copying information by an already authorized person cannot be undone.
 
 The code is a private invitation, not independent proof of phone ownership. Send it only in a direct conversation with the intended member. Anyone who receives both number and code before use could redeem it.
 

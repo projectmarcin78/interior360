@@ -22,7 +22,7 @@ function fixture(){
 }
 test('anonymous and forged tokens cannot read contacts or submit anything',()=>{const f=fixture();for(const call of ['getDirectory()','getDirectory("'+ 'a'.repeat(64)+'")','submitEntry({type:"profile"})','getAccessSession("")'])assert.throws(()=>f.run(call),/SIGN_IN_REQUIRED/);assert.equal(f.reads(),0)});
 test('visitor cannot generate codes or run owner setup',()=>{const f=fixture();f.setOwner(false);assert.throws(()=>f.run('generateWhatsAppCode()'),/owner/);assert.throws(()=>f.run('setupSicilyCrew()'),/owner/)});
-test('owner creates a one-use code, no plaintext stored; phone+code yields protected directory',()=>{const f=fixture(),code=f.issue();assert(!JSON.stringify(f.properties).includes(code));assert(f.dialog().includes('https://wa.me/48603760320?text='));assert(f.dialog().includes('Nothing has been sent automatically'));const session=f.login(code);assert.equal(session.phone,phone);assert.equal(session.token.length,64);assert.equal(f.run(`getDirectory('${session.token}')[0].name`),'Local contact');assert.throws(()=>f.login(code),/incorrect/)});
+test('owner creates a one-use code, no plaintext stored; phone+code yields protected directory',()=>{const f=fixture(),code=f.issue();assert(!JSON.stringify(f.properties).includes(code));assert(f.dialog().includes('https://wa.me/48603760320?text='));assert(f.dialog().includes('Nothing has been sent automatically'));const session=f.login(code);assert.equal(session.phone,phone);assert.equal(session.token.length,64);assert.equal(session.expires-Date.parse('2026-10-21T10:00:00Z'),7776000000);assert.equal(f.run(`getDirectory('${session.token}')[0].name`),'Local contact');assert.throws(()=>f.login(code),/incorrect/)});
 test('code bound to phone, normalized formatting, no membership enumeration in errors',()=>{const f=fixture(),code=f.issue();assert.throws(()=>f.run(`verifyAccessCode('+391234567890','${code}')`),/incorrect/);const s=f.run(`verifyAccessCode('00 48 (603) 760-320','${code}')`);assert.equal(s.phone,phone)});
 test('expired, replaced and five-times incorrect codes are rejected',()=>{
  const f=fixture(),old=f.issue(),latest=f.issue();assert.throws(()=>f.login(old),/incorrect/);assert(f.login(latest).token);
@@ -30,9 +30,9 @@ test('expired, replaced and five-times incorrect codes are rejected',()=>{
  const h=fixture(),correct=h.issue();const wrong=correct==='00000000'?'00000001':'00000000';for(let i=0;i<5;i++)assert.throws(()=>h.login(wrong),/incorrect/);assert.throws(()=>h.login(correct),/incorrect/);
 });
 test('blocking a member revokes active sessions for both reads and writes',()=>{const f=fixture(),s=f.login();f.tables.Members[1][2]='Blocked';assert.throws(()=>f.run(`getDirectory('${s.token}')`),/SIGN_IN_REQUIRED/);assert.throws(()=>f.run(`submitEntry({},'${s.token}')`),/SIGN_IN_REQUIRED/);f.tables.Members[1][2]='Active';assert.throws(()=>f.run(`getDirectory('${s.token}')`),/SIGN_IN_REQUIRED/)});
-test('logout, 7-day expiration, missing tab, malformed header and duplicate member fail closed',()=>{
+test('logout, 90-day expiration, missing tab, malformed header and duplicate member fail closed',()=>{
  const f=fixture(),s=f.login();f.run(`signOut('${s.token}')`);assert.throws(()=>f.run(`getDirectory('${s.token}')`),/SIGN_IN_REQUIRED/);
- const g=fixture(),t=g.login();g.advance(604800001);assert.throws(()=>g.run(`getAccessSession('${t.token}')`),/SIGN_IN_REQUIRED/);
+ const g=fixture(),t=g.login();g.advance(7776000001);assert.throws(()=>g.run(`getAccessSession('${t.token}')`),/SIGN_IN_REQUIRED/);
  for(const mutate of [f=>delete f.tables.Members,f=>f.tables.Members[0][0]='Email',f=>f.tables.Members.push([...f.tables.Members[1]])]){const h=fixture(),u=h.login();mutate(h);assert.throws(()=>h.run(`getDirectory('${u.token}')`),/SIGN_IN_REQUIRED/)}
 });
 test('no messaging service, no public code-request API and client passes token for all data calls',()=>{
@@ -51,3 +51,5 @@ test('client clears contact data on logout and ignores late directory responses'
  nodes.cards.innerHTML='private contacts';nodes.profileBody.innerHTML='private details';vm.runInContext('logOut()',c);assert(classes.has('locked'));assert.equal(nodes.cards.innerHTML,'');assert.equal(nodes.profileBody.innerHTML,'');assert.equal(storage.size,0);assert(queue.some(q=>q.method==='signOut'));
  pending.success([{id:'stale',name:'Stale private data'}]);assert.equal(vm.runInContext('profiles.length',c),0);
 });
+
+test('90-day access has explicit renewal instructions and uses bounded browser timers',()=>{const html=fs.readFileSync('public/sicily-tradespeople/index.html','utf8');assert(html.includes('After 90 days, you must ask Marcin on WhatsApp for a new access code.'));assert(html.includes('Your 90-day sign-in has expired. Ask Marcin on WhatsApp for a new access code.'));assert(html.includes('Math.min(remaining,86400000)'));});
