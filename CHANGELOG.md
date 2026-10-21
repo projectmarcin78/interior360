@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-10-21
+
+### Changed
+- Simplified the portal to a neutral white, charcoal and grey presentation.
+- Used the original logo wordmark in the header and removed the large repeated logo.
+- Replaced campaign slogans and prominent colour accents with a compact directory introduction.
+- Applied the same presentation to the future Apps Script interface and legal pages.
+- Backend availability is unchanged; submissions remain in preview mode.
+
 ## [1.2.0] - 2026-10-21
 
 ### Changed
