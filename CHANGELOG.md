@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-10-21
+
+### Changed
+- Kept a single Add a contact button in the header, removing repeated calls to action.
+- Replaced the generic search field and keyword-helper panel with a prominent AI assistant panel and plain-language instructions.
+- Clearly marked the disconnected assistant and disabled paid requests; manual service, category and town browsing stays available.
+- Preserved the optional AI activation gates and existing rating and review features.
+
+
 ## [1.4.0] - 2026-10-21
 
 ### Added

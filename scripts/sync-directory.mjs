@@ -19,5 +19,6 @@ app=app.replace("if(!window.google?.script?.run){profiles=[];render();return;}",
 app=app.replace(/if\(!window\.google\?\.script\?\.run\)\{f\.querySelector\('\.error'\)\.textContent='Preview only\.[^']*';return;\}/,'');
 app=app.slice(0,app.indexOf('const appUrl='))+'load();\n</script></body></html>';
 app=app.replace('Contacts are coming soon','No contacts yet').replace('Explore the services or suggest a contact using the form preview. Reviews will open with the directory.','Suggest a useful local contact to get the directory started.');
+app=app.replace('Browse the services below. To suggest someone, use Add a contact in the header. Reviews will open with the directory.','Browse services or suggest someone using Add a contact in the header.');
 await fs.writeFile('backend/Code.gs',backend+'const PAGE_HTML='+JSON.stringify(app)+';\n');
 console.log('Synced '+groups.length+' categories and '+ids.length+' services into public and Apps Script pages.');

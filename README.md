@@ -40,7 +40,7 @@ JavaScript syntax, template configuration and backend validation/moderation logi
 
 ## Versioning
 
-Current baseline: **1.4.0**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+Current baseline: **1.4.1**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
 
 
 ## Services and profile compatibility
@@ -51,7 +51,7 @@ Profiles choose 1–15 service IDs. The existing Tradespeople Trade column store
 
 ## Request helper and optional AI
 
-The public preview uses local keyword suggestions in English, Polish and Italian. It is explicitly labelled as keyword search, not AI. Suggestions choose services; they are not diagnoses or endorsements, and results contain only approved directory contacts.
+The public preview shows a clearly labelled AI assistant with instructions and an explicit Not connected yet status. Its request field and button are disabled until the existing backend configuration gates pass. Manual category/service/town filters remain usable. Keyword matching is not presented as an AI service. Suggestions choose services; they are not diagnoses or endorsements, and results contain only approved directory contacts.
 
 An optional Apps Script `suggestServices` function uses the OpenAI Responses API to classify the request into whitelisted service IDs. It sends the request and service catalogue, not contact phone numbers or reviews. The visitor must explicitly consent before each AI-enabled request flow. Responses are checked and unknown IDs dropped. There are no browsing tools or autonomous actions.
 
