@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-10-21
+
+### Fixed
+- Set the renovation-help heading explicitly to bold black for legibility on its light background, including the future Apps Script interface.
+
 ## [1.2.1] - 2026-10-21
 
 ### Changed
