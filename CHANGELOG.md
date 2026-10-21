@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [1.5.2] - 2026-10-21
+
+### Changed
+- Remove the redundant Crew finder header link from the static page and Apps Script source; retain the search section.
+- Document the transition to a members-only directory and the need to disable all existing anonymous Apps Script deployments.
+
+### Deployment limits
+- GitHub Pages publication cannot update the separately deployed Google app. The owner must update that deployment to apply its header change.
+- No member authentication has been added. Existing public deployments remain public until archived or restricted by the owner.
+
 ## [1.5.1] - 2026-10-21
 
 ### Fixed

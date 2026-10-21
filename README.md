@@ -40,7 +40,7 @@ JavaScript syntax, template configuration and backend validation/moderation logi
 
 ## Versioning
 
-Current baseline: **1.5.1**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+Current baseline: **1.5.2**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
 
 
 ## Services and profile compatibility
@@ -68,3 +68,12 @@ Administration: review and delete unresolved pending/rejected records within 90 
 ### Google session compatibility
 
 1.5.1 uses the verified company-domain deployment route and sets iframe credentialless before loading the app. Supporting browsers start the embedded app in a fresh temporary cookie context rather than an existing multi-account Google session. Unsupported browsers ignore the attribute; an always-visible direct-open link is provided. This does not change database sharing or grant new Google account access. Test the affected user's regular browser after deployment; success in a separate test browser alone cannot establish that their session issue is resolved.
+
+
+## Members-only transition (not implemented)
+
+The requested private-group access is not implemented in 1.5.2. Do not treat the directory as private. The current anonymous Apps Script deployment must be archived or restricted in Deploy > Manage deployments, including any other active anonymous deployments. Removing the public embed or adding a browser-only password does not protect getDirectory or submitEntry.
+
+The redundant Crew finder navigation link is removed in the repository. To apply this to the live Google app, replace Code.gs and update its deployment to a new version. Do not reopen anonymous access while private access is being designed.
+
+Recommended small-group option: manually issue individual revocable, high-entropy access links in WhatsApp. Such links identify a bearer, not verified ownership of a phone number; recipients can forward them. A strict phone allowlist requires phone verification, for example SMS codes, a provider account and delivery charges. No WhatsApp membership synchronization exists. All directory reads and writes must enforce access on the server. Keep phone allowlists and access tokens out of this public repository.
