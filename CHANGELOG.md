@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [1.4.2] - 2026-10-21
+
+### Changed
+- Removed the AI assistant panel and restored the standard name, service and problem search.
+- Disabled the AI server entry point regardless of prior configuration; this source cannot make paid AI requests.
+- Published the approved copy: Find the help that’s right for you. Local contacts in Sicily. Community reviews to help you choose.
+- Added a one-time setup function that verifies existing database headers and connects the bound spreadsheet without putting its ID in public source.
+- Preserved the single Add a contact button, manual filters and star reviews.
+
+
 ## [1.4.1] - 2026-10-21
 
 ### Changed

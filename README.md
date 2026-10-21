@@ -19,7 +19,7 @@ Until the backend is deployed, the directory is a clearly labelled preview. It c
 
 1. On the company Google account, open the private database prepared in Google Drive. Open Extensions → Apps Script.
 2. Paste `backend/Code.gs` into Code.gs.
-3. In Apps Script Project Settings → Script properties, add `SPREADSHEET_ID` with the private database's actual ID. Do not commit this value here.
+3. Save, select `setupSicilyCrew` in the function list and click Run. Authorize using the company Google account. It verifies the bound database tabs and saves the spreadsheet ID privately; no copying of the ID is needed. Existing records are not changed.
 4. Deploy → New deployment → Web app. Execute as **Me**, access **Anyone**. Authorize access, copy the deployed `/exec` URL and test it in an incognito window.
 5. Put that URL in `public/sicily-tradespeople/config.js` as `appUrl`. The directory page will embed the live app; the next GitHub Pages deployment publishes the setting.
 6. Keep the database private. Approve profiles using the Status column in Tradespeople and reviews using Status in Reviews. Only `Approved` records are shown. `Pending` and `Rejected` records stay private.
@@ -40,7 +40,7 @@ JavaScript syntax, template configuration and backend validation/moderation logi
 
 ## Versioning
 
-Current baseline: **1.4.1**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+Current baseline: **1.4.2**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
 
 
 ## Services and profile compatibility
@@ -49,12 +49,8 @@ Edit `public/assets/services.json`, then run `node scripts/sync-directory.mjs` f
 
 Profiles choose 1–15 service IDs. The existing Tradespeople Trade column stores their JSON array. No columns are moved. Historical single-trade values are mapped on read, with their original value preserved. The database sheet and tab names stay unchanged. An independent/local declaration is mandatory for car rental submissions; moderation must enforce the no-chains policy. Location currently means the contact's base town; Areas served remains descriptive text.
 
-## Request helper and optional AI
+## Search and AI status
 
-The public preview shows a clearly labelled AI assistant with instructions and an explicit Not connected yet status. Its request field and button are disabled until the existing backend configuration gates pass. Manual category/service/town filters remain usable. Keyword matching is not presented as an AI service. Suggestions choose services; they are not diagnoses or endorsements, and results contain only approved directory contacts.
-
-An optional Apps Script `suggestServices` function uses the OpenAI Responses API to classify the request into whitelisted service IDs. It sends the request and service catalogue, not contact phone numbers or reviews. The visitor must explicitly consent before each AI-enabled request flow. Responses are checked and unknown IDs dropped. There are no browsing tools or autonomous actions.
-
-AI remains off by default. Before enabling, review provider data processing, update the public privacy notice, configure a suitable model supporting Structured Outputs, and test the deployed integration. Set private Script properties `OPENAI_API_KEY`, `OPENAI_MODEL`, `AI_DAILY_LIMIT` (default 50 calls globally per UTC day), `AI_PRIVACY_READY=true`, and `AI_ENABLED=true`. Never put the key in HTML, config.js or this repository. Set provider-side budget controls as well; the application cap limits requests, not exact spend. Turn off with `AI_ENABLED=false`. No API request is sent when the integration is disabled or the user has not consented. Model calls are not end-to-end tested without these credentials.
+The directory uses browser-local text search and category/service/town filters. There is no AI panel or paid AI request path. The Apps Script AI entry points explicitly report disabled even if old Script properties remain set. The earlier optional integration remains in git history for a future separately approved activation. No OpenAI key is needed for this release.
 
 Profile claiming, owner updates/replies, sponsored placement and payments remain future work. They are not activated by this release.
