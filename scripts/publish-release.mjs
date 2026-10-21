@@ -8,4 +8,4 @@ if(ref){if(ref.object.type!=='commit'||ref.object.sha!==commit)throw Error('Vers
 else await api('/git/refs','POST',{ref:'refs/tags/'+tag,sha:commit});
 const existing=await api('/releases/tags/'+tag);
 if(existing)console.log('Release already exists: '+existing.html_url);
-else {const release=await api('/releases','POST',{tag_name:tag,target_commitish:commit,name:'Interior360 '+tag,body:await fs.readFile('release-notes.generated.md','utf8'),draft:false,prerelease:false});console.log('Published '+release.html_url);}
+else {const release=await api('/releases','POST',{tag_name:tag,target_commitish:commit,name:'SicilyCrew '+tag,body:await fs.readFile('release-notes.generated.md','utf8'),draft:false,prerelease:false});console.log('Published '+release.html_url);}

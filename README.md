@@ -1,10 +1,10 @@
-# Interior360
+# SicilyCrew
 
-Company website and English-language Sicily Tradespeople directory.
+English-language directory of local tradespeople in Sicily.
 
 ## Layout
 
-- `public/index.html`: temporary home page for the future company website.
+- `public/index.html`: entry point redirecting to the SicilyCrew directory.
 - `public/sicily-tradespeople/`: directory page, ready for a Google Apps Script web app.
 - `backend/Code.gs`: Google Apps Script server and website, with no private database ID committed.
 - `.github/workflows/pages.yml`: publishes only `public/` to GitHub Pages.
@@ -40,4 +40,4 @@ JavaScript syntax, template configuration and backend validation/moderation logi
 
 ## Versioning
 
-Current baseline: **1.0.0**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+Current baseline: **1.2.0**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.

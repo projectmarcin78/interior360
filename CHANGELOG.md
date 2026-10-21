@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-10-21
+
+### Changed
+- Rebranded the public portal as SicilyCrew, using the approved red logo with a fine yellow outline.
+- Redesigned navigation, hero, search, cards, forms and mobile layouts around the red/yellow identity.
+- The root page now opens the directory directly; existing directory and legal URLs are preserved.
+- Updated legal-page styling and product naming, retaining Interior360 sp. z o.o. as the operator and its separate service offer.
+- Included the rebranded interface in the Apps Script source for a future deployment.
+
+### Availability
+- Google backend remains disconnected. This release changes presentation and branding, not submission availability.
+
 ## [1.1.1] - 2026-10-21
 
 ### Added
