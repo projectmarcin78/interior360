@@ -1,6 +1,6 @@
 # SicilyCrew
 
-English-language directory of local tradespeople in Sicily.
+Community directory of contacts and services for homeowners in Sicily.
 
 ## Layout
 
@@ -40,4 +40,21 @@ JavaScript syntax, template configuration and backend validation/moderation logi
 
 ## Versioning
 
-Current baseline: **1.2.0**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+Current baseline: **1.4.0**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+
+
+## Services and profile compatibility
+
+Edit `public/assets/services.json`, then run `node scripts/sync-directory.mjs` from the repository root. This regenerates the embedded taxonomy and Apps Script page. Keep the entire generated Code.gs when deploying; no external taxonomy request is required at runtime. Run `node --test tests/directory.test.mjs` and `node scripts/prepare-release.mjs` before publishing.
+
+Profiles choose 1–15 service IDs. The existing Tradespeople Trade column stores their JSON array. No columns are moved. Historical single-trade values are mapped on read, with their original value preserved. The database sheet and tab names stay unchanged. An independent/local declaration is mandatory for car rental submissions; moderation must enforce the no-chains policy. Location currently means the contact's base town; Areas served remains descriptive text.
+
+## Request helper and optional AI
+
+The public preview uses local keyword suggestions in English, Polish and Italian. It is explicitly labelled as keyword search, not AI. Suggestions choose services; they are not diagnoses or endorsements, and results contain only approved directory contacts.
+
+An optional Apps Script `suggestServices` function uses the OpenAI Responses API to classify the request into whitelisted service IDs. It sends the request and service catalogue, not contact phone numbers or reviews. The visitor must explicitly consent before each AI-enabled request flow. Responses are checked and unknown IDs dropped. There are no browsing tools or autonomous actions.
+
+AI remains off by default. Before enabling, review provider data processing, update the public privacy notice, configure a suitable model supporting Structured Outputs, and test the deployed integration. Set private Script properties `OPENAI_API_KEY`, `OPENAI_MODEL`, `AI_DAILY_LIMIT` (default 50 calls globally per UTC day), `AI_PRIVACY_READY=true`, and `AI_ENABLED=true`. Never put the key in HTML, config.js or this repository. Set provider-side budget controls as well; the application cap limits requests, not exact spend. Turn off with `AI_ENABLED=false`. No API request is sent when the integration is disabled or the user has not consented. Model calls are not end-to-end tested without these credentials.
+
+Profile claiming, owner updates/replies, sponsored placement and payments remain future work. They are not activated by this release.

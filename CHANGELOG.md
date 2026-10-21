@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-10-21
+
+### Added
+- Problem-based Crew finder with 22 categories and 115 home and local services.
+- Multiple services per contact, grouped selections and English/Polish/Italian search keywords.
+- Prominent Add a contact and per-profile Leave a review actions, preserving 1–5 stars.
+- Sorting by name, highest rating or review count, with positive/neutral/negative review counts on profiles.
+- Local independent car rental declarations; no rental chains.
+- A request helper with clearly labelled keyword suggestions and optional server-side OpenAI service classification.
+- AI is disabled unless privately configured, privacy-reviewed and explicitly enabled, with a global daily request cap.
+- A shared taxonomy source and synchronisation script, with compatibility for previous single-trade records.
+
+### Availability
+- The public site remains a preview. Google submissions and AI are not activated by this release.
+
+
 ## [1.3.0] - 2026-10-21
 
 ### Added

@@ -1,0 +1,687 @@
+[
+  {
+    "name": "Renovation & building",
+    "services": [
+      {
+        "id": "full-home-renovation",
+        "name": "Full home renovation",
+        "keywords": "remont generalny ristrutturazione completa builder renovation team"
+      },
+      {
+        "id": "new-home-construction",
+        "name": "New home construction",
+        "keywords": "budowa domu costruzione casa"
+      },
+      {
+        "id": "home-extensions-alterations",
+        "name": "Home extensions & alterations",
+        "keywords": "rozbudowa przebudowa ampliamento"
+      },
+      {
+        "id": "bathroom-renovation",
+        "name": "Bathroom renovation",
+        "keywords": "remont lazienki bagno"
+      },
+      {
+        "id": "kitchen-installation",
+        "name": "Kitchen installation",
+        "keywords": "montaz kuchni cucina"
+      },
+      {
+        "id": "demolition-dismantling",
+        "name": "Demolition & dismantling",
+        "keywords": "rozbiorka demontaz demolizione"
+      }
+    ]
+  },
+  {
+    "name": "Walls, damp & insulation",
+    "services": [
+      {
+        "id": "damp-salt-on-walls",
+        "name": "Damp & salt on walls",
+        "keywords": "wilgoc sol sciany wykwity muffa umidita salnitro salt damp walls"
+      },
+      {
+        "id": "plastering-wall-smoothing",
+        "name": "Plastering & wall smoothing",
+        "keywords": "tynk gladzie sciany intonaco rasatura"
+      },
+      {
+        "id": "painting",
+        "name": "Painting",
+        "keywords": "malowanie painter imbianchino pittura"
+      },
+      {
+        "id": "facade-repairs",
+        "name": "Facade repairs",
+        "keywords": "elewacja facciata"
+      },
+      {
+        "id": "wall-cracks",
+        "name": "Wall cracks",
+        "keywords": "pekniecia crepe"
+      },
+      {
+        "id": "home-insulation",
+        "name": "Home insulation",
+        "keywords": "docieplenie ocieplenie isolamento cappotto"
+      }
+    ]
+  },
+  {
+    "name": "Roofs & waterproofing",
+    "services": [
+      {
+        "id": "roof-repairs",
+        "name": "Roof repairs",
+        "keywords": "dach roofer tetto"
+      },
+      {
+        "id": "roof-terrace-waterproofing",
+        "name": "Roof & terrace waterproofing",
+        "keywords": "uszczelnianie dach taras infiltrazioni terrazzo impermeabilizzazione"
+      },
+      {
+        "id": "gutters-rainwater-drains",
+        "name": "Gutters & rainwater drains",
+        "keywords": "rynny grondaie"
+      }
+    ]
+  },
+  {
+    "name": "Floors, tiles & stone",
+    "services": [
+      {
+        "id": "tiling",
+        "name": "Tiling",
+        "keywords": "plytki glazura tiler piastrelle piastrellista"
+      },
+      {
+        "id": "stone-flooring",
+        "name": "Stone flooring",
+        "keywords": "podloga kamienna pavimento pietra"
+      },
+      {
+        "id": "floor-repairs-restoration",
+        "name": "Floor repairs & restoration",
+        "keywords": "renowacja podlogi pavimenti"
+      },
+      {
+        "id": "marble-stone-polishing",
+        "name": "Marble & stone polishing",
+        "keywords": "szlifowanie polerowanie marmur marmo lucidatura"
+      }
+    ]
+  },
+  {
+    "name": "Water & plumbing",
+    "services": [
+      {
+        "id": "plumbing-repairs-leaks",
+        "name": "Plumbing repairs & leaks",
+        "keywords": "hydraulik przeciek plumber idraulico perdita acqua"
+      },
+      {
+        "id": "water-tanks-replacement",
+        "name": "Water tanks & replacement",
+        "keywords": "zbiornik woda wymiana serbatoio cisterna"
+      },
+      {
+        "id": "water-tank-sealing",
+        "name": "Water tank sealing",
+        "keywords": "uszczelnianie zbiornik cisterna impermeabilizzazione"
+      },
+      {
+        "id": "water-tank-cleaning",
+        "name": "Water tank cleaning",
+        "keywords": "czyszczenie zbiornik pulizia cisterna"
+      },
+      {
+        "id": "pumps-water-pressure",
+        "name": "Pumps & water pressure",
+        "keywords": "pompa hydrofor cisnienie autoclave pompa"
+      },
+      {
+        "id": "hot-water-systems",
+        "name": "Hot water systems",
+        "keywords": "ciepla woda bojler scaldabagno"
+      },
+      {
+        "id": "blocked-drains",
+        "name": "Blocked drains",
+        "keywords": "zatkany odplyw kanalizacja scarico otturato spurgo"
+      },
+      {
+        "id": "septic-tank-emptying",
+        "name": "Septic tank emptying",
+        "keywords": "szambo pozzo nero fossa biologica"
+      },
+      {
+        "id": "water-delivery",
+        "name": "Water delivery",
+        "keywords": "dostawa wody autobotte acqua"
+      }
+    ]
+  },
+  {
+    "name": "Heating & fuel",
+    "services": [
+      {
+        "id": "gas-boiler-repair-servicing",
+        "name": "Gas boiler repair & servicing",
+        "keywords": "piec kociol gazowy naprawa konserwacja caldaia gas"
+      },
+      {
+        "id": "oil-boiler-repair-servicing",
+        "name": "Oil boiler repair & servicing",
+        "keywords": "piec olejowy gasolio"
+      },
+      {
+        "id": "pellet-stove-repair-servicing",
+        "name": "Pellet stove repair & servicing",
+        "keywords": "piec pellet stufa"
+      },
+      {
+        "id": "wood-stove-repair",
+        "name": "Wood stove repair",
+        "keywords": "piec drewno stufa legna"
+      },
+      {
+        "id": "firewood-delivery",
+        "name": "Firewood delivery",
+        "keywords": "drewno opalowe legna consegna firewood"
+      },
+      {
+        "id": "pellet-delivery",
+        "name": "Pellet delivery",
+        "keywords": "dostawa pellet consegna pellet"
+      },
+      {
+        "id": "chimney-sweeping",
+        "name": "Chimney sweeping",
+        "keywords": "kominiarz komin spazzacamino"
+      },
+      {
+        "id": "gas-installation-checks",
+        "name": "Gas installation checks",
+        "keywords": "przeglad instalacja gazowa controllo gas"
+      }
+    ]
+  },
+  {
+    "name": "Air conditioning & ventilation",
+    "services": [
+      {
+        "id": "air-conditioning-installation",
+        "name": "Air conditioning installation",
+        "keywords": "klimatyzacja montaz condizionatore climatizzatore"
+      },
+      {
+        "id": "air-conditioning-repairs-cleaning",
+        "name": "Air conditioning repairs & cleaning",
+        "keywords": "klimatyzacja serwis czyszczenie assistenza climatizzatore"
+      },
+      {
+        "id": "ventilation-dehumidifying",
+        "name": "Ventilation & dehumidifying",
+        "keywords": "wentylacja osuszanie ventilazione deumidificazione"
+      }
+    ]
+  },
+  {
+    "name": "Electrical & internet",
+    "services": [
+      {
+        "id": "electrical-repairs",
+        "name": "Electrical repairs",
+        "keywords": "elektryk prad electrician elettricista"
+      },
+      {
+        "id": "lighting-sockets",
+        "name": "Lighting & sockets",
+        "keywords": "oswietlenie gniazdka lampy luci prese"
+      },
+      {
+        "id": "intercoms-video-entry",
+        "name": "Intercoms & video entry",
+        "keywords": "domofon citofono"
+      },
+      {
+        "id": "internet-wi-fi-setup",
+        "name": "Internet & Wi-Fi setup",
+        "keywords": "internet wifi router"
+      }
+    ]
+  },
+  {
+    "name": "Windows, doors & security",
+    "services": [
+      {
+        "id": "window-door-repairs",
+        "name": "Window & door repairs",
+        "keywords": "okna drzwi infissi serramenti"
+      },
+      {
+        "id": "shutters-mosquito-screens",
+        "name": "Shutters & mosquito screens",
+        "keywords": "okiennice rolety moskitiery persiane tapparelle zanzariere"
+      },
+      {
+        "id": "locks-security",
+        "name": "Locks & security",
+        "keywords": "zamki zabezpieczenia serrature"
+      },
+      {
+        "id": "emergency-door-opening",
+        "name": "Emergency door opening",
+        "keywords": "zatrzasniete drzwi apertura porta locked out"
+      },
+      {
+        "id": "key-cutting",
+        "name": "Key cutting",
+        "keywords": "dorabianie kluczy duplicazione chiavi"
+      },
+      {
+        "id": "alarms-cameras",
+        "name": "Alarms & cameras",
+        "keywords": "alarm monitoring telecamere allarme"
+      }
+    ]
+  },
+  {
+    "name": "Carpentry & furniture",
+    "services": [
+      {
+        "id": "carpentry-custom-furniture",
+        "name": "Carpentry & custom furniture",
+        "keywords": "stolarz meble wymiar carpenter falegname"
+      },
+      {
+        "id": "furniture-assembly-repairs",
+        "name": "Furniture assembly & repairs",
+        "keywords": "skladanie naprawa mebli montaggio mobili"
+      },
+      {
+        "id": "antique-furniture-restoration",
+        "name": "Antique furniture restoration",
+        "keywords": "antyki renowacja restauro antiquariato"
+      },
+      {
+        "id": "upholstery",
+        "name": "Upholstery",
+        "keywords": "tapicer tapicerowanie tappezziere"
+      },
+      {
+        "id": "used-furniture-salvage",
+        "name": "Used furniture & salvage",
+        "keywords": "komis meblowy meble uzywane mobili usati"
+      },
+      {
+        "id": "wooden-doors-shutters-restoration",
+        "name": "Wooden doors & shutters restoration",
+        "keywords": "renowacja drzwi okiennice restauro legno"
+      }
+    ]
+  },
+  {
+    "name": "Moving & deliveries",
+    "services": [
+      {
+        "id": "home-removals",
+        "name": "Home removals",
+        "keywords": "przeprowadzka przeprowadzki trasloco traslochi moving"
+      },
+      {
+        "id": "furniture-transport",
+        "name": "Furniture transport",
+        "keywords": "transport mebli trasporto mobili"
+      },
+      {
+        "id": "furniture-lifting-carrying",
+        "name": "Furniture lifting & carrying",
+        "keywords": "wnoszenie przenoszenie mebli facchinaggio carry furniture"
+      },
+      {
+        "id": "materials-delivery",
+        "name": "Materials delivery",
+        "keywords": "transport materialow dostawa materiali consegna"
+      },
+      {
+        "id": "furniture-materials-lift",
+        "name": "Furniture & materials lift",
+        "keywords": "podnosnik meble balkon elevatore montacarichi"
+      },
+      {
+        "id": "shop-collection-home-delivery",
+        "name": "Shop collection & home delivery",
+        "keywords": "odbior zakupow sklep dostawa ritiro acquisti"
+      },
+      {
+        "id": "van-driver",
+        "name": "Van & driver",
+        "keywords": "dostawczak kierowca furgone autista"
+      }
+    ]
+  },
+  {
+    "name": "Local travel & car rental",
+    "services": [
+      {
+        "id": "taxi-local-rides",
+        "name": "Taxi & local rides",
+        "keywords": "taksowka taxi przejazd passaggio"
+      },
+      {
+        "id": "airport-transfers",
+        "name": "Airport transfers",
+        "keywords": "lotnisko palermo transfer aeroporto"
+      },
+      {
+        "id": "driver-by-the-hour",
+        "name": "Driver by the hour",
+        "keywords": "kierowca godziny autista ore"
+      },
+      {
+        "id": "car-rental-local-contacts",
+        "name": "Car rental — local contacts",
+        "keywords": "wynajem samochod auto noleggio privato autonoleggio local independent rental"
+      }
+    ]
+  },
+  {
+    "name": "House clearance & waste",
+    "services": [
+      {
+        "id": "house-clearance",
+        "name": "House clearance",
+        "keywords": "oproznianie domu sgombero casa"
+      },
+      {
+        "id": "household-waste-removal",
+        "name": "Household waste removal",
+        "keywords": "wywoz smieci rifiuti spazzatura"
+      },
+      {
+        "id": "rubble-removal",
+        "name": "Rubble removal",
+        "keywords": "wywoz gruzu macerie calcinacci"
+      },
+      {
+        "id": "old-furniture-mattress-removal",
+        "name": "Old furniture & mattress removal",
+        "keywords": "stare meble materace ritiro ingombranti materassi"
+      },
+      {
+        "id": "old-appliance-removal",
+        "name": "Old appliance removal",
+        "keywords": "stare agd elettrodomestici smaltimento"
+      },
+      {
+        "id": "skip-rubble-bag-hire",
+        "name": "Skip & rubble bag hire",
+        "keywords": "kontener gruz cassone sacchi macerie"
+      }
+    ]
+  },
+  {
+    "name": "Cleaning",
+    "services": [
+      {
+        "id": "house-cleaning",
+        "name": "House cleaning",
+        "keywords": "sprzatanie pulizia casa cleaner"
+      },
+      {
+        "id": "window-cleaning",
+        "name": "Window cleaning",
+        "keywords": "mycie okien pulizia vetri"
+      },
+      {
+        "id": "after-renovation-cleaning",
+        "name": "After-renovation cleaning",
+        "keywords": "sprzatanie remont pulizia cantiere"
+      },
+      {
+        "id": "guest-changeovers",
+        "name": "Guest changeovers",
+        "keywords": "goscie wynajem sprzatanie cambio ospiti"
+      },
+      {
+        "id": "sofa-mattress-cleaning",
+        "name": "Sofa & mattress cleaning",
+        "keywords": "pranie sofa materac divani materassi"
+      },
+      {
+        "id": "deep-cleaning-after-absence",
+        "name": "Deep cleaning after absence",
+        "keywords": "sprzatanie nieobecnosc pulizia approfondita"
+      }
+    ]
+  },
+  {
+    "name": "Maintenance & small repairs",
+    "services": [
+      {
+        "id": "handyman-small-repairs",
+        "name": "Handyman & small repairs",
+        "keywords": "zlota raczka drobne naprawy tuttofare handyman"
+      },
+      {
+        "id": "property-maintenance",
+        "name": "Property maintenance",
+        "keywords": "konserwacja utrzymanie domu manutenzione"
+      },
+      {
+        "id": "appliance-repairs",
+        "name": "Appliance repairs",
+        "keywords": "naprawa agd lavatrice frigorifero elettrodomestici"
+      },
+      {
+        "id": "shelves-curtains-fittings",
+        "name": "Shelves, curtains & fittings",
+        "keywords": "polki karnisze montaz mensole tende"
+      },
+      {
+        "id": "gates-railings-welding",
+        "name": "Gates, railings & welding",
+        "keywords": "brama balustrada spawacz fabbro saldatura"
+      }
+    ]
+  },
+  {
+    "name": "Property care while away",
+    "services": [
+      {
+        "id": "property-checks-keyholding",
+        "name": "Property checks & keyholding",
+        "keywords": "dogladanie domu klucze controllo casa chiavi"
+      },
+      {
+        "id": "meet-contractors-receive-deliveries",
+        "name": "Meet contractors & receive deliveries",
+        "keywords": "odbior dostaw wpuszczanie fachowcow ricevere consegne"
+      },
+      {
+        "id": "checks-after-storms",
+        "name": "Checks after storms",
+        "keywords": "burza ulewa wichura maltempo controllo"
+      },
+      {
+        "id": "home-preparation-before-arrival",
+        "name": "Home preparation before arrival",
+        "keywords": "przyjazd przygotowanie domu arrivo preparazione"
+      }
+    ]
+  },
+  {
+    "name": "Garden & outdoors",
+    "services": [
+      {
+        "id": "garden-maintenance",
+        "name": "Garden maintenance",
+        "keywords": "ogrod ogrodnik gardener giardiniere"
+      },
+      {
+        "id": "tree-pruning",
+        "name": "Tree pruning",
+        "keywords": "przycinanie drzew potatura"
+      },
+      {
+        "id": "pest-control",
+        "name": "Pest control",
+        "keywords": "szkodniki owady derattizzazione disinfestazione"
+      },
+      {
+        "id": "garden-waste-removal",
+        "name": "Garden waste removal",
+        "keywords": "galezie odpady zielone sfalci potature"
+      },
+      {
+        "id": "irrigation-systems",
+        "name": "Irrigation systems",
+        "keywords": "nawadnianie irrigazione"
+      },
+      {
+        "id": "terrace-courtyard-cleaning",
+        "name": "Terrace & courtyard cleaning",
+        "keywords": "czyszczenie taras podworko cortile terrazza"
+      }
+    ]
+  },
+  {
+    "name": "Equipment & working at height",
+    "services": [
+      {
+        "id": "access-platform-cherry-picker",
+        "name": "Access platform / cherry picker",
+        "keywords": "zwyzka podest piattaforma aerea cestello"
+      },
+      {
+        "id": "lifting-equipment-with-operator",
+        "name": "Lifting equipment with operator",
+        "keywords": "podnosnik operator sollevamento operatore"
+      },
+      {
+        "id": "scaffolding-hire",
+        "name": "Scaffolding hire",
+        "keywords": "rusztowanie ponteggio"
+      },
+      {
+        "id": "tool-hire",
+        "name": "Tool hire",
+        "keywords": "wynajem narzedzi noleggio attrezzi"
+      }
+    ]
+  },
+  {
+    "name": "Design & building specialists",
+    "services": [
+      {
+        "id": "geometra-building-surveyor",
+        "name": "Geometra / building surveyor",
+        "keywords": "geometra surveyor"
+      },
+      {
+        "id": "geologist",
+        "name": "Geologist",
+        "keywords": "geolog geologo"
+      },
+      {
+        "id": "engineer",
+        "name": "Engineer",
+        "keywords": "inzynier ingegnere"
+      },
+      {
+        "id": "structural-engineer",
+        "name": "Structural engineer",
+        "keywords": "konstruktor konstrukcja stropy strutturista"
+      },
+      {
+        "id": "architect",
+        "name": "Architect",
+        "keywords": "architekt architetto"
+      },
+      {
+        "id": "interior-designer",
+        "name": "Interior designer",
+        "keywords": "architekt wnetrz projektowanie interior designer arredamento"
+      },
+      {
+        "id": "landscape-architect",
+        "name": "Landscape architect",
+        "keywords": "architekt krajobrazu paesaggista"
+      },
+      {
+        "id": "project-manager",
+        "name": "Project manager",
+        "keywords": "kierownik projektu koordynacja remontu project manager"
+      }
+    ]
+  },
+  {
+    "name": "Local support & language",
+    "services": [
+      {
+        "id": "interpreting-language-support",
+        "name": "Interpreting & language support",
+        "keywords": "tlumacz tlumaczenie interprete traduttore"
+      },
+      {
+        "id": "shopping-delivery-assistance",
+        "name": "Shopping & delivery assistance",
+        "keywords": "pomoc zakupy dostawy assistenza acquisti"
+      },
+      {
+        "id": "home-setup-after-a-long-break",
+        "name": "Home setup after a long break",
+        "keywords": "uruchomienie domu riapertura casa"
+      },
+      {
+        "id": "on-site-assistance",
+        "name": "On-site assistance",
+        "keywords": "pomoc na miejscu interwencja assistenza locale"
+      },
+      {
+        "id": "italian-lessons",
+        "name": "Italian lessons",
+        "keywords": "nauka wloskiego lezioni italiano"
+      },
+      {
+        "id": "sicilian-lessons",
+        "name": "Sicilian lessons",
+        "keywords": "nauka sycylijskiego lezioni siciliano"
+      }
+    ]
+  },
+  {
+    "name": "Accounting & legal",
+    "services": [
+      {
+        "id": "accounting-tax-services",
+        "name": "Accounting & tax services",
+        "keywords": "ksiegowa ksiegowosc podatki commercialista contabilita"
+      },
+      {
+        "id": "legal-services",
+        "name": "Legal services",
+        "keywords": "prawnik uslugi prawne avvocato legale"
+      }
+    ]
+  },
+  {
+    "name": "Food & events",
+    "services": [
+      {
+        "id": "catering",
+        "name": "Catering",
+        "keywords": "catering jedzenie przyjecie ristorazione"
+      },
+      {
+        "id": "event-organisation",
+        "name": "Event organisation",
+        "keywords": "organizacja imprez festa eventi"
+      }
+    ]
+  }
+]
