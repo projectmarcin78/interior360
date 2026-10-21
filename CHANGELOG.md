@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+## [1.5.1] - 2026-10-21
+
+### Fixed
+- Load the public app in a credentialless iframe where supported to avoid Google multi-account session conflicts.
+- Use the verified company-domain deployment route, with no changes to spreadsheet permissions.
+- Keep a direct-open link visible when embedded loading fails.
+
+### Verification limits
+- The affected user session cannot be reproduced in the test browser. Recheck there after publication.
+
+
 ## [1.5.0] - 2026-10-21
 
 ### Added

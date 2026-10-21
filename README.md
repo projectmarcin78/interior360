@@ -40,7 +40,7 @@ JavaScript syntax, template configuration and backend validation/moderation logi
 
 ## Versioning
 
-Current baseline: **1.5.0**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+Current baseline: **1.5.1**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
 
 
 ## Services and profile compatibility
@@ -63,3 +63,8 @@ The public config points to the company-owned Apps Script web app deployed from 
 For release verification, check the public web app without signing in, submit a clearly labelled test contact, confirm Pending status and absence from public results, approve it, submit a test review, then confirm the same review moderation and average-score behavior. Reject the test records afterwards. Never claim these live-write checks passed without performing them.
 
 Administration: review and delete unresolved pending/rejected records within 90 days unless retained for a report/dispute, and respond to privacy/correction requests. No retention cleanup trigger is installed. To disconnect, set appUrl to an empty string and redeploy GitHub Pages.
+
+
+### Google session compatibility
+
+1.5.1 uses the verified company-domain deployment route and sets iframe credentialless before loading the app. Supporting browsers start the embedded app in a fresh temporary cookie context rather than an existing multi-account Google session. Unsupported browsers ignore the attribute; an always-visible direct-open link is provided. This does not change database sharing or grant new Google account access. Test the affected user's regular browser after deployment; success in a separate test browser alone cannot establish that their session issue is resolved.

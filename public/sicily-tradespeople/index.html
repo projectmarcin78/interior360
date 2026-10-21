@@ -50,6 +50,16 @@ function send(event,type){event.preventDefault();const f=event.target;const payl
 
 options('category',SERVICE_GROUPS.map(g=>g.name));fillServices();options('addTown',TOWNS);options('town',TOWNS);renderServiceChoices();
 const appUrl=window.INTERIOR360_CONFIG?.appUrl||'';
-if(/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(appUrl)){document.body.replaceChildren();const frame=document.createElement('iframe');frame.src=appUrl;frame.title='SicilyCrew';frame.style='width:100%;height:100vh;border:0;display:block';document.body.append(frame)}else{load()}
+if(/^https:\/\/script\.google\.com\/(?:a\/[A-Za-z0-9.-]+\/)?macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(appUrl)){
+ document.body.replaceChildren();
+ const wrapper=document.createElement('div');wrapper.style='height:100dvh;display:flex;flex-direction:column';
+ const help=document.createElement('div');help.style='font:12px/1.4 system-ui,sans-serif;text-align:right;padding:7px 16px;border-bottom:1px solid #eee;color:#666;background:#fff';
+ const direct=document.createElement('a');direct.href=appUrl;direct.target='_blank';direct.rel='noopener noreferrer';direct.textContent='Having trouble loading? Open the directory';help.append(direct);
+ const frame=document.createElement('iframe');
+ // Anonymous public app: avoid inheriting visitors’ existing Google account cookies where supported.
+ frame.setAttribute('credentialless','');frame.referrerPolicy='no-referrer';
+ frame.title='SicilyCrew';frame.style='width:100%;flex:1;min-height:0;border:0;display:block';frame.src=appUrl;
+ wrapper.append(help,frame);document.body.append(wrapper);
+}else{load()}
 
 </script><script src="../site-version.js"></script></body></html>
