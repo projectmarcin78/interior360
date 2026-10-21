@@ -2,6 +2,23 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-10-21
+
+### Breaking changes
+- Directory reads and submissions now require a valid member session token. Anonymous getDirectory and submitEntry calls are rejected.
+- Add a private Members tab with Phone, Name and Status columns; one unique number per person.
+
+### Added
+- Owner-only spreadsheet menu to generate one-use 8-digit codes, valid for 30 minutes and up to five attempts, with a prefilled WhatsApp link. The owner sends messages manually.
+- Phone-and-code sign-in, sign-out and server-validated sessions lasting up to 7 days. Blocking or removing a member prevents further reads and submissions; open pages periodically recheck access.
+- Hashed code and session storage, server-side expiry, old-code invalidation and protection of owner administration functions.
+- Private-group copy and privacy information. No email delivery, WhatsApp API or paid messaging integration.
+
+### Migration and verification
+- GitHub Pages is paused with membersOnlyReady=false until the owner deploys Code.gs 2.0.0, runs setup, tests private access, and retires every old anonymous deployment. This pause alone does not secure old Google URLs.
+- Existing contact/review data and moderation columns are preserved. Crew finder navigation remains removed; the search section remains.
+- Local automated tests cover authorization, expiry, replay, wrong-code attempts, owner-only actions, revocation and existing directory rules. Actual Apps Script authorization, owner menu and mobile browser operation require live owner verification.
+
 ## [1.5.2] - 2026-10-21
 
 ### Changed

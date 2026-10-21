@@ -1,79 +1,41 @@
 # SicilyCrew
 
-Community directory of contacts and services for homeowners in Sicily.
+Private community directory of contacts and services for homeowners in Sicily.
 
-## Layout
+Current baseline: **2.0.0**. See VERSIONING.md for semantic versioning and CHANGELOG.md for changes.
 
-- `public/index.html`: entry point redirecting to the SicilyCrew directory.
-- `public/sicily-tradespeople/`: directory page, ready for a Google Apps Script web app.
-- `backend/Code.gs`: Google Apps Script server and website, with no private database ID committed.
-- `.github/workflows/pages.yml`: publishes only `public/` to GitHub Pages.
+## Repository
 
-## Enable hosting
+- public/: GitHub Pages entry point, directory shell, assets and legal pages.
+- backend/Code.gs: single-file Google Apps Script backend and generated app UI.
+- public/assets/services.json: authoritative catalogue (22 categories, 115 services).
+- scripts/sync-directory.mjs: sync the catalogue and HTML into Code.gs after UI edits.
+- tests/: authentication and directory validation tests. Run `node --test tests/*.test.mjs`, then `node scripts/prepare-release.mjs`.
 
-In repository Settings → Pages → Build and deployment, choose **GitHub Actions** as Source. Then run **Publish website** from the Actions tab if necessary. Use the actual URL returned by the successful deployment. No custom domain is configured.
+## Private access deployment
 
-## Activate submissions
+Follow [the migration guide](docs/PRIVATE_ACCESS.md). The live Google app is updated separately from GitHub Pages. A repository push does not update Apps Script.
 
-Until the backend is deployed, the directory is a clearly labelled preview. It contains no invented contacts. Forms cannot submit and no records are saved in a visitor's browser.
+The Pages wrapper is deliberately paused with membersOnlyReady=false. Do not enable it until the protected backend is deployed and verified. This switch is not an access control: old anonymous Google deployments must be updated or archived separately.
 
-1. On the company Google account, open the private database prepared in Google Drive. Open Extensions → Apps Script.
-2. Paste `backend/Code.gs` into Code.gs.
-3. Save, select `setupSicilyCrew` in the function list and click Run. Authorize using the company Google account. It verifies the bound database tabs and saves the spreadsheet ID privately; no copying of the ID is needed. Existing records are not changed.
-4. Deploy → New deployment → Web app. Execute as **Me**, access **Anyone**. Authorize access, copy the deployed `/exec` URL and test it in an incognito window.
-5. Put that URL in `public/sicily-tradespeople/config.js` as `appUrl`. The directory page will embed the live app; the next GitHub Pages deployment publishes the setting.
-6. Keep the database private. Approve profiles using the Status column in Tradespeople and reviews using Status in Reviews. Only `Approved` records are shown. `Pending` and `Rejected` records stay private.
+## How access works
 
-## Test before inviting users
+The owner manages the private Members sheet (Phone, Name, Status). A full international WhatsApp number is required, one row per person. Only Active rows are allowed. Select a member row and use SicilyCrew > Generate WhatsApp access code. A dialog displays a code and a WhatsApp link containing a prefilled message; the owner must press Send themselves. No messages are sent automatically, no WhatsApp group data is imported, and there is no messaging provider account or per-code API charge.
 
-Submit a test profile and confirm it stays hidden while Pending. Approve it and reload the app. Submit a review and confirm it affects the score only after approval. Reject both test records afterwards. Test the app directly and embedded on mobile.
+The 8-digit code expires after 30 minutes, five unsuccessful attempts or one successful use. Regenerating a code invalidates the previous code for that number. The application has no anonymous code-generation endpoint. Only hashes are stored in script properties; no codes or sessions are committed to GitHub or written to spreadsheet cells.
 
-Anonymous review identities are not verified. This first version uses manual moderation, basic validation, a honeypot and short-term duplicate detection. It does not implement account registration or CAPTCHA.
+A successful sign-in grants a random session token for up to 7 days. The server checks expiration and current membership on every data read/write. The browser stores the token locally where available and periodically rechecks membership. Sign out revokes the token and clears rendered contacts and forms. Browser storage may be temporary or unavailable in embedded/credentialless/private contexts; in that case access may require a fresh code. Prefer the direct app link if the embedded view loses its session. Already viewed or copied information cannot be recalled, and a recipient could forward their number and code: this is manual invitation access, not independent WhatsApp identity verification.
 
-## Later integration
+Server session and code hashes are kept privately in Apps Script properties. Expired entries are removed when the owner generates a later code. Keep the group small and review unused membership records. Do not share the database with members; the app handles access while running as the owner.
 
-The company website and directory keep separate paths. The directory can also be embedded in another website using an iframe with the actual published directory URL. Test the final website's iframe and content-security settings before launch. Google may show its standard Apps Script notice.
+## Moderation and existing data
 
-## Verification
+Tradespeople and Reviews tabs are preserved. Only Approved rows are returned to authenticated members. New contacts and reviews stay Pending until the owner approves them. Profiles support multiple services, legacy trade values, town and category filters, alphabetical/rating/review sorting, and reviews from 1 to 5 stars. AI remains disabled.
 
-JavaScript syntax, template configuration and backend validation/moderation logic were checked locally. Live submissions require the owner's Google Apps Script deployment. Browser rendering and final embedding still need verification.
+## Release and hosting
 
-## Versioning
+GitHub Actions publishes public/ to GitHub Pages and creates immutable version tags/releases. Google backend source has to be deployed manually from the same version. No custom domain is configured. The public repository contains code and catalogue data, not the private contact database or member list.
 
-Current baseline: **1.5.2**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+## Verification limits
 
-
-## Services and profile compatibility
-
-Edit `public/assets/services.json`, then run `node scripts/sync-directory.mjs` from the repository root. This regenerates the embedded taxonomy and Apps Script page. Keep the entire generated Code.gs when deploying; no external taxonomy request is required at runtime. Run `node --test tests/directory.test.mjs` and `node scripts/prepare-release.mjs` before publishing.
-
-Profiles choose 1–15 service IDs. The existing Tradespeople Trade column stores their JSON array. No columns are moved. Historical single-trade values are mapped on read, with their original value preserved. The database sheet and tab names stay unchanged. An independent/local declaration is mandatory for car rental submissions; moderation must enforce the no-chains policy. Location currently means the contact's base town; Areas served remains descriptive text.
-
-## Search and AI status
-
-The directory uses browser-local text search and category/service/town filters. There is no AI panel or paid AI request path. The Apps Script AI entry points explicitly report disabled even if old Script properties remain set. The earlier optional integration remains in git history for a future separately approved activation. No OpenAI key is needed for this release.
-
-Profile claiming, owner updates/replies, sponsored placement and payments remain future work. They are not activated by this release.
-
-
-## Google connection — 1.5.0
-
-The public config points to the company-owned Apps Script web app deployed from 1.4.2. The browser loads that app in an iframe, and forms use google.script.run there. The Sheet remains private and only Approved entries are returned by getDirectory. This integration release does not replace the already deployed Apps Script source. Its embedded footer therefore still identifies application source 1.4.2. Keep future Apps Script code deployments explicit; editing repository source alone does not update Google.
-
-For release verification, check the public web app without signing in, submit a clearly labelled test contact, confirm Pending status and absence from public results, approve it, submit a test review, then confirm the same review moderation and average-score behavior. Reject the test records afterwards. Never claim these live-write checks passed without performing them.
-
-Administration: review and delete unresolved pending/rejected records within 90 days unless retained for a report/dispute, and respond to privacy/correction requests. No retention cleanup trigger is installed. To disconnect, set appUrl to an empty string and redeploy GitHub Pages.
-
-
-### Google session compatibility
-
-1.5.1 uses the verified company-domain deployment route and sets iframe credentialless before loading the app. Supporting browsers start the embedded app in a fresh temporary cookie context rather than an existing multi-account Google session. Unsupported browsers ignore the attribute; an always-visible direct-open link is provided. This does not change database sharing or grant new Google account access. Test the affected user's regular browser after deployment; success in a separate test browser alone cannot establish that their session issue is resolved.
-
-
-## Members-only transition (not implemented)
-
-The requested private-group access is not implemented in 1.5.2. Do not treat the directory as private. The current anonymous Apps Script deployment must be archived or restricted in Deploy > Manage deployments, including any other active anonymous deployments. Removing the public embed or adding a browser-only password does not protect getDirectory or submitEntry.
-
-The redundant Crew finder navigation link is removed in the repository. To apply this to the live Google app, replace Code.gs and update its deployment to a new version. Do not reopen anonymous access while private access is being designed.
-
-Recommended small-group option: manually issue individual revocable, high-entropy access links in WhatsApp. Such links identify a bearer, not verified ownership of a phone number; recipients can forward them. A strict phone allowlist requires phone verification, for example SMS codes, a provider account and delivery charges. No WhatsApp membership synchronization exists. All directory reads and writes must enforce access on the server. Keep phone allowlists and access tokens out of this public repository.
+Automated tests use mocked Apps Script services and do not establish real Google deployment, OAuth, spreadsheet menu or browser storage behavior. Complete the live checklist in the migration guide before enabling the wrapper or inviting users.
