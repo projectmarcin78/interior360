@@ -40,7 +40,7 @@ JavaScript syntax, template configuration and backend validation/moderation logi
 
 ## Versioning
 
-Current baseline: **1.4.2**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
+Current baseline: **1.5.0**. See [VERSIONING.md](VERSIONING.md) for the compatibility contract and release process, and [CHANGELOG.md](CHANGELOG.md) for release notes. VERSION is the authoritative version.
 
 
 ## Services and profile compatibility
@@ -54,3 +54,12 @@ Profiles choose 1–15 service IDs. The existing Tradespeople Trade column store
 The directory uses browser-local text search and category/service/town filters. There is no AI panel or paid AI request path. The Apps Script AI entry points explicitly report disabled even if old Script properties remain set. The earlier optional integration remains in git history for a future separately approved activation. No OpenAI key is needed for this release.
 
 Profile claiming, owner updates/replies, sponsored placement and payments remain future work. They are not activated by this release.
+
+
+## Google connection — 1.5.0
+
+The public config points to the company-owned Apps Script web app deployed from 1.4.2. The browser loads that app in an iframe, and forms use google.script.run there. The Sheet remains private and only Approved entries are returned by getDirectory. This integration release does not replace the already deployed Apps Script source. Its embedded footer therefore still identifies application source 1.4.2. Keep future Apps Script code deployments explicit; editing repository source alone does not update Google.
+
+For release verification, check the public web app without signing in, submit a clearly labelled test contact, confirm Pending status and absence from public results, approve it, submit a test review, then confirm the same review moderation and average-score behavior. Reject the test records afterwards. Never claim these live-write checks passed without performing them.
+
+Administration: review and delete unresolved pending/rejected records within 90 days unless retained for a report/dispute, and respond to privacy/correction requests. No retention cleanup trigger is installed. To disconnect, set appUrl to an empty string and redeploy GitHub Pages.

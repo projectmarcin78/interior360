@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-10-21
+
+### Added
+- Connected GitHub Pages to the supplied company Apps Script web-app deployment.
+- Updated privacy and review terms for Google-backed submissions, private storage, public approved records and manual moderation.
+- Documented operational retention and live verification steps.
+
+### Deployment
+- Google serves the existing 1.4.2 application source; this release connects the public entry point and updates its legal pages.
+- AI remains disabled. Live form-write and moderation verification is separate from successful page delivery.
+
+
 ## [1.4.2] - 2026-10-21
 
 ### Changed

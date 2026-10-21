@@ -1,3 +1,2 @@
-// Set this to the deployed Google Apps Script /exec URL when ready.
-// Never put spreadsheet IDs, credentials or private records in public files.
-window.INTERIOR360_CONFIG = { appUrl: '' };
+// Public web-app URL only. The database stays private.
+window.INTERIOR360_CONFIG = { appUrl: 'https://script.google.com/macros/s/AKfycbyfxBNwyW5pSlfnEJUG_B_5tWnI64v2e5WdixK32_OBpEGlnASIaR-4SzkdtVrZGkBOVg/exec' };
