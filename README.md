@@ -2,7 +2,7 @@
 
 Private community directory of contacts and services for homeowners in Sicily.
 
-Current baseline: **2.0.1**. See VERSIONING.md for semantic versioning and CHANGELOG.md for changes.
+Current baseline: **2.0.2**. See VERSIONING.md for semantic versioning and CHANGELOG.md for changes.
 
 ## Repository
 

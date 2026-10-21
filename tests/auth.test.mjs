@@ -52,4 +52,4 @@ test('client clears contact data on logout and ignores late directory responses'
  pending.success([{id:'stale',name:'Stale private data'}]);assert.equal(vm.runInContext('profiles.length',c),0);
 });
 
-test('90-day access has explicit renewal instructions and uses bounded browser timers',()=>{const html=fs.readFileSync('public/sicily-tradespeople/index.html','utf8');assert(html.includes('After 90 days, you must ask Marcin on WhatsApp for a new access code.'));assert(html.includes('Your 90-day sign-in has expired. Ask Marcin on WhatsApp for a new access code.'));assert(html.includes('Math.min(remaining,86400000)'));});
+test('90-day access has explicit renewal instructions and uses bounded browser timers',()=>{const html=fs.readFileSync('public/sicily-tradespeople/index.html','utf8');assert(html.includes('After 90 days, you must ask the PM on WhatsApp for a new access code.'));assert(html.includes('Your 90-day sign-in has expired. Ask the PM on WhatsApp for a new access code.'));assert(html.includes('Math.min(remaining,86400000)'));});

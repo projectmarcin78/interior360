@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.0.2] - 2026-10-21
+
+### Changed
+- Use “the PM” instead of a personal name in access-code instructions, sign-in errors and renewal reminders.
+- Requires updating the separate Google Apps Script deployment; the public wrapper remains paused.
+
 ## [2.0.1] - 2026-10-21
 
 ### Changed
