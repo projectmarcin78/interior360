@@ -2,7 +2,10 @@ name: Publish website
 on:
   push:
     branches: [main]
-    paths: ['public/**', 'VERSION', 'CHANGELOG.md', 'scripts/prepare-release.mjs', '.github/workflows/pages.yml']
+    paths: ['public/**', 'VERSION', 'CHANGELOG.md', 'scripts/prepare-release.mjs', 'scripts/update-youtube-videos.py', '.github/workflows/pages.yml']
+  schedule:
+    # Monday evening: 19:15 in Poland in winter, 20:15 in summer.
+    - cron: '15 18 * * 1'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,6 +22,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - name: Refresh latest YouTube videos
+        run: python3 scripts/update-youtube-videos.py
       - name: Validate and stamp website version
         run: node scripts/prepare-release.mjs
       - uses: actions/configure-pages@v5
@@ -28,3 +33,4 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
