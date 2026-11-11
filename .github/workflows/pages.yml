@@ -23,6 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Refresh latest YouTube videos
+        # A feed outage must not block unrelated website releases.
+        continue-on-error: ${{ github.event_name != 'schedule' }}
         run: python3 scripts/update-youtube-videos.py
       - name: Validate and stamp website version
         run: node scripts/prepare-release.mjs
